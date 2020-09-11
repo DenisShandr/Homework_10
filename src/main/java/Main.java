@@ -1,22 +1,28 @@
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        boolean exit = true;
+
         System.out.println("Hello! This is Calculator.");
+        System.out.println("Command list:" + '\n' +
+                " + : plus command" + '\n' +
+                " - : minus command" + '\n' +
+                " * : multiply command" + '\n' +
+                " / : division command");
 
-        Calculator calc = new Calculator();
-
-        calc.setFirstNumber();
-        calc.setSecondNumber();
-        calc.calculateResult();
-        System.out.println(calc.toString());
-
+        Calculator.calculate(getString("Enter first number: "),
+                getString("Enter second number: "),
+                getString("Enter command: "));
 
     }
+
+    public static String getString(String s){
+        System.out.print(s);
+        return in.nextLine();
+    }
+
 }
 
 
